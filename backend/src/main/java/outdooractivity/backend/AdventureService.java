@@ -11,4 +11,8 @@ public class AdventureService {
     public List<Adventure> getAll() {
         return adventureRepositoryInterface.findAll();
     }
+
+    public Adventure addAdventure(Adventure adventure) {
+        return adventureRepositoryInterface.save(adventure);
+    }
 }

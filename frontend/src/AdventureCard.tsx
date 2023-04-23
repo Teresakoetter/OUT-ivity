@@ -14,7 +14,7 @@ export default function AdventureCard (props: AdventureCardProps){
             <p>quote:</p>
             {props.adventure.quote}
             <p>description:</p>
-            {props.adventure.quote}
+            {props.adventure.description}
         </div>
     )
 }
