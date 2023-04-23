@@ -1,4 +1,5 @@
 import {Adventure} from "./Adventure";
+import './AdventureCard.css'
 
 type AdventureCardProps = {
     adventure: Adventure
@@ -6,7 +7,7 @@ type AdventureCardProps = {
 
 export default function AdventureCard (props: AdventureCardProps){
     return(
-        <div>
+        <div className="adventureCard">
             <p>id:</p>
             {props.adventure.id}
             <p>name:</p>
