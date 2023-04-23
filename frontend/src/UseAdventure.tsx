@@ -4,10 +4,7 @@ import axios from "axios";
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
 
-type UseAdventureProps = {
-
-}
-export default function UseAdventure(props: UseAdventureProps){
+export default function UseAdventure(){
     const [adventures, setAdventures] = useState<Adventure[]>([])
     useEffect(() =>{
         loadAllAdventures()
