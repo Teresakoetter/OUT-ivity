@@ -12,7 +12,7 @@ import java.util.List;
 import static org.mockito.Mockito.verify;
 @AutoConfigureMockMvc
 @SpringBootTest
-public class AdventureServiceTest {
+class AdventureServiceTest {
     @Mock
     private AdventureRepositoryInterface adventureRepositoryInterfaceMock;
     private AdventureService adventureService;
@@ -23,7 +23,7 @@ public class AdventureServiceTest {
     }
 
     @Test
-    public void getAll_shouldInvoke_findAll(){
+    void getAll_shouldInvoke_findAll(){
         //GIVEN
         //WHEN
         adventureService.getAll();
