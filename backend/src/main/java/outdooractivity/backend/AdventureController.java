@@ -12,12 +12,12 @@ public class AdventureController {
     private final AdventureService adventureService;
 
     @GetMapping
-    public List<Adventure> adventures(){
+    public List<Adventure> adventures() {
         return adventureService.getAll();
     }
 
     @PostMapping
-    public Adventure addAdventure(@RequestBody Adventure adventure){
+    public Adventure addAdventure(@RequestBody Adventure adventure) {
         return adventureService.addAdventure(adventure);
     }
 }
