@@ -17,4 +17,8 @@ public class AdventureService {
     public Adventure addAdventure(Adventure adventure) {
         return adventureRepositoryInterface.save(adventure);
     }
+
+    public Adventure findById(String id) {
+        return adventureRepositoryInterface.findById(id).orElseThrow();
+    }
 }
