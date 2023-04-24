@@ -87,6 +87,24 @@ class AdventureIntegrationTest {
                                 """
                 ));
     }
+    @Test
+    @DirtiesContext
+    void findById_shouldReturnAdventureWithCorrespondingId() throws Exception {
+        adventureRepositoryInterface.save(adventure1);
+
+        mockMvc.perform(get ("/api/adventures/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().json(
+                        """
+                                    {
+                                "id": "1",
+                                "quote": "quote1",
+                                "name": "name1",
+                                "description": "description1"
+                                }
+                                    """
+                ));
+    }
 }
 
 

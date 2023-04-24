@@ -7,13 +7,12 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.*;
 
 @AutoConfigureMockMvc
@@ -66,6 +65,35 @@ class AdventureServiceTest {
         Adventure actual = adventureService.addAdventure(adventure1);
         verify(adventureRepositoryInterface).save(adventure1);
         assertEquals(actual, adventure1);
+
+    }
+
+    @DirtiesContext
+    @Test
+    void findById_shouldReturnCorrespondingAdventureWhenGivenId() {
+        when(adventureRepositoryInterfaceMock.findById("1"))
+                .thenReturn(Optional.of(adventure1));
+
+        Adventure actual = adventureService.findById("1");
+        Adventure expected = adventure1;
+
+        verify(adventureRepositoryInterfaceMock).findById("1");
+        assertEquals(expected, actual);
+
+    }
+
+    @DirtiesContext
+    @Test
+    void findById_shouldThrowExceptionWhenIdDoesNotExist() {
+        when(adventureRepositoryInterfaceMock.findById("1"))
+                .thenThrow(NoSuchElementException.class);
+        try{
+            adventureService.findById("1");
+            fail();
+        }
+        catch (NoSuchElementException Ignored){
+            verify(adventureRepositoryInterfaceMock).findById("1");
+        }
 
     }
 }
