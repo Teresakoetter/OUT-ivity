@@ -1,0 +1,8 @@
+.adventureGallery{
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-direction: column;
+    padding-left: 20%;
+    padding-right: 20%;
+}
