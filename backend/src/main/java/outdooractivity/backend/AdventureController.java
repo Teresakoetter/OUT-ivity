@@ -20,4 +20,10 @@ public class AdventureController {
     public Adventure addAdventure(@RequestBody Adventure adventure) {
         return adventureService.addAdventure(adventure);
     }
+
+    @GetMapping("/{id}")
+    public Adventure findById (@PathVariable String id){
+        return adventureService.findById(id);
+    }
+
 }
