@@ -87,13 +87,21 @@ class AdventureServiceTest {
     void findById_shouldThrowExceptionWhenIdDoesNotExist() {
         when(adventureRepositoryInterfaceMock.findById("1"))
                 .thenThrow(NoSuchElementException.class);
-        try{
+        try {
             adventureService.findById("1");
             fail();
-        }
-        catch (NoSuchElementException Ignored){
+        } catch (NoSuchElementException Ignored) {
             verify(adventureRepositoryInterfaceMock).findById("1");
         }
+
+    }
+
+    @DirtiesContext
+    @Test
+    void deleteAdventure_shouldInvokeDeleteByIDMethod() {
+        adventureRepositoryInterfaceMock.save(adventure1);
+        adventureService.deleteAdventure("1");
+        verify(adventureRepositoryInterfaceMock).deleteById("1");
 
     }
 }

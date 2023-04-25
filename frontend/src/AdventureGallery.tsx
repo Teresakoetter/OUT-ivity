@@ -7,13 +7,13 @@ import './AdventureGallery.css'
 type AdventureGalleryProps = {
     adventures: Adventure[]
 }
-export default function (props: AdventureGalleryProps){
-    const {adventures}=UseAdventure()
+export default function (props: AdventureGalleryProps) {
+    const {adventures} = UseAdventure()
 
-    return(
+    return (
         <div className="adventureGallery">
             {adventures.map((adventure) =>
-            <AdventureCard key={adventure.id} adventure={adventure}/>)
+                <AdventureCard key={adventure.id} adventure={adventure}/>)
             }
         </div>
     )

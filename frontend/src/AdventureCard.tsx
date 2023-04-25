@@ -5,8 +5,8 @@ type AdventureCardProps = {
     adventure: Adventure
 }
 
-export default function AdventureCard (props: AdventureCardProps){
-    return(
+export default function AdventureCard(props: AdventureCardProps) {
+    return (
         <div className="adventureCard">
             <p>id:</p>
             {props.adventure.id}

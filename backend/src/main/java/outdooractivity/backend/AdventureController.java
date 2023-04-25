@@ -22,11 +22,12 @@ public class AdventureController {
     }
 
     @GetMapping("{id}")
-    public Adventure findById(@PathVariable String id){
+    public Adventure findById(@PathVariable String id) {
         return adventureService.findById(id);
     }
+
     @DeleteMapping("{id}")
-    public void delete(@PathVariable String id){
+    public void delete(@PathVariable String id) {
         adventureService.deleteAdventure(id);
     }
 

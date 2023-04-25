@@ -1,21 +1,33 @@
-import {Adventure} from "./Adventure";
 import './AdventureCard.css'
+import UseAdventureDetail from "./UseAdventureDetail";
 
 type AdventureDetailCardProps = {
-    adventure: Adventure
+    deleteAdventure: (id: string) => void
 }
 
-export default function AdventureDetailCard (props: AdventureDetailCardProps){
-    return(
+export default function AdventureDetailCard(props: AdventureDetailCardProps) {
+    const {adventure} = UseAdventureDetail()
+
+    function onDeleteClick() {
+        if (adventure) {
+            props.deleteAdventure(adventure.id)
+        }
+
+    }
+
+    return (
         <div className="adventureCard">
             <p>id:</p>
-            {props.adventure.id}
+            {adventure?.id}
             <p>name:</p>
-            {props.adventure.name}
+            {adventure?.name}
             <p>quote:</p>
-            {props.adventure.quote}
+            {adventure?.quote}
             <p>description:</p>
-            {props.adventure.description}
+            {adventure?.description}
+            <br/>
+            <button onClick={onDeleteClick}>delete adventure</button>
+
         </div>
     )
 }
