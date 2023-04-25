@@ -21,13 +21,20 @@ export default function UseAdventure() {
 
     function addAdventure(newAdventure: NewAdventure) {
         axios.post("/api/adventures", newAdventure)
-            .then(() => loadAllAdventures()
+            .then((response) => {
+                    setAdventures([...adventures, response.data])
+                    toast.success("Recipe added successfully");
+                }
+
             )
-            .catch(() => console.error("post on /api/adventures not successful"))
+
+            .catch((error) => {
+                toast.error("Post not successful, try again later" + error.statusText)
+            })
     }
 
     function deleteAdventure(id: string) {
-        axios.delete("/adventures/" + id)
+        axios.delete('/api/adventures/' + id)
             .then(() => {
                 setAdventures(adventures.filter((adventure) => adventure.id !== id))
                 toast.success("Recipe deleted successfully");

@@ -1,11 +1,13 @@
 import {Adventure} from "./Adventure";
 import './AdventureCard.css'
+import {useNavigate} from "react-router-dom";
 
 type AdventureCardProps = {
     adventure: Adventure
 }
 
 export default function AdventureCard(props: AdventureCardProps) {
+    const navigate = useNavigate()
     return (
         <div className="adventureCard">
             <p>id:</p>
@@ -16,6 +18,8 @@ export default function AdventureCard(props: AdventureCardProps) {
             {props.adventure.quote}
             <p>description:</p>
             {props.adventure.description}
+            <br/><br/>
+            <button onClick={() => {navigate("/adventures" + props.adventure.id)}}>details</button>
         </div>
     )
 }
