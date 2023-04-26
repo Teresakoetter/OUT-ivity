@@ -11,7 +11,7 @@ import {ToastContainer} from "react-toastify";
 
 
 function App() {
-    const {adventures, addAdventure, deleteAdventure} = UseAdventure()
+    const {addAdventure, deleteAdventure} = UseAdventure()
     return (
         <BrowserRouter>
             <div className="App">
@@ -32,7 +32,7 @@ function App() {
                     <Routes>
                         <Route element={<Navigate to="/adventures"/>}/>
                         <Route path="/adventures"
-                               element={<AdventureGallery adventures={adventures}/>}/>
+                               element={<AdventureGallery/>}/>
                         <Route path="/adventures/add"
                                element={<AddAdventure addAdventure={addAdventure}/>}/>
                         <Route path="/adventures/:id"
