@@ -26,11 +26,9 @@ export default function UseAdventure() {
                     setAdventures([...adventures, response.data])
                     toast.success("Adventure added successfully");
                 }
-
             )
-
             .catch((error) => {
-                toast.error("Post not successful, try again later" + error.statusText)
+                toast.error("Post not successful, try again later." + error.statusText)
             })
     }
 
