@@ -1,5 +1,6 @@
 package outdooractivity.backend;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -8,8 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -18,6 +18,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class AdventureIntegrationTest {
     @Autowired
     MockMvc mockMvc;
+    @Autowired
+    ObjectMapper objectMapper;
     @Autowired
     AdventureRepositoryInterface adventureRepositoryInterface;
     Adventure adventure1 = new Adventure("1", "name1", "quote1", "description1");
@@ -87,12 +89,13 @@ class AdventureIntegrationTest {
                                 """
                 ));
     }
+
     @Test
     @DirtiesContext
     void findById_shouldReturnAdventureWithCorrespondingId() throws Exception {
         adventureRepositoryInterface.save(adventure1);
 
-        mockMvc.perform(get ("/api/adventures/1"))
+        mockMvc.perform(get("/api/adventures/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().json(
                         """
@@ -104,6 +107,38 @@ class AdventureIntegrationTest {
                                 }
                                     """
                 ));
+    }
+
+    @DirtiesContext
+    @Test
+    void deleteAdventure_shouldDeleteAdventureWithCorrespondingId() throws Exception {
+        String saveResult = mockMvc.perform(
+                        post("http://localhost:8080/api/adventures")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("""
+                                                {
+                                        "id": "1",
+                                        "quote": "quote1",
+                                        "name": "name1",
+                                        "description": "description1"
+                                        }
+                                                """)
+
+                )
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+
+        Adventure saveResultAdventure = objectMapper.readValue(saveResult, Adventure.class);
+        String id = saveResultAdventure.id();
+
+        mockMvc.perform(delete("/api/adventures/" + id))
+                .andExpect(status().isOk());
+        mockMvc.perform(get("http://localhost:8080/api/adventures"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("""
+                        []
+                        """));
     }
 }
 

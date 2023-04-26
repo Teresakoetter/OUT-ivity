@@ -21,4 +21,8 @@ public class AdventureService {
     public Adventure findById(String id) {
         return adventureRepositoryInterface.findById(id).orElseThrow();
     }
+
+    public void deleteAdventure(String id) {
+        adventureRepositoryInterface.deleteById(id);
+    }
 }

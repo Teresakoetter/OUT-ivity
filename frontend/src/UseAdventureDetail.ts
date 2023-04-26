@@ -27,6 +27,7 @@ export default function UseAdventureDetail() {
 
 
     }
+
     return {adventure}
 
 }

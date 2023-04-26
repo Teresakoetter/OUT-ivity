@@ -1,15 +1,15 @@
-import {Adventure, NewAdventure} from "./Adventure";
+import {NewAdventure} from "./Adventure";
 import {FormEvent, useState} from "react";
 
 type AddAdventureProps = {
     addAdventure: (newAdventure: NewAdventure) => void
 }
-export default function (props: AddAdventureProps){
+export default function AddAdventure(props: AddAdventureProps) {
     const [name, setName] = useState("")
     const [quote, setQuote] = useState("")
     const [description, setDescription] = useState("")
 
-    function onSaveAdventure(event: FormEvent<HTMLFormElement>){
+    function onSaveAdventure(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
         const newAdventure: NewAdventure = {name: name, quote: quote, description: description}
@@ -23,10 +23,10 @@ export default function (props: AddAdventureProps){
             <form onSubmit={onSaveAdventure}>
                 <textarea
                     placeholder="insert name"
-                value={name}
-                onChange={(event) => {
-                    setName(event.target.value)
-                }}/>
+                    value={name}
+                    onChange={(event) => {
+                        setName(event.target.value)
+                    }}/>
                 <textarea
                     placeholder="insert quote"
                     value={quote}
