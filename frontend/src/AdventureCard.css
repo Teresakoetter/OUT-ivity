@@ -1,4 +1,8 @@
 .adventureCard {
-    border: forestgreen solid 1px;
-    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px gray solid;
+    margin: 50px;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
 }

@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Adventure, NewAdventure} from "./Adventure";
 import axios from "axios";
 import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function UseAdventure() {
     const [adventures, setAdventures] = useState<Adventure[]>([])
@@ -21,16 +22,21 @@ export default function UseAdventure() {
 
     function addAdventure(newAdventure: NewAdventure) {
         axios.post("/api/adventures", newAdventure)
-            .then(() => loadAllAdventures()
+            .then((response) => {
+                    setAdventures([...adventures, response.data])
+                    toast.success("Adventure added successfully");
+                }
             )
-            .catch(() => console.error("post on /api/adventures not successful"))
+            .catch((error) => {
+                toast.error("Post not successful, try again later." + error.statusText)
+            })
     }
 
     function deleteAdventure(id: string) {
-        axios.delete("/adventures/" + id)
+        axios.delete('/api/adventures/' + id)
             .then(() => {
                 setAdventures(adventures.filter((adventure) => adventure.id !== id))
-                toast.success("Recipe deleted successfully");
+                toast.success("Adventure deleted successfully");
             })
             .catch(() => console.error("delete of adventure not successful"))
 
