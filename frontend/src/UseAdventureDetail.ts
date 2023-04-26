@@ -3,6 +3,7 @@ import {Adventure} from "./Adventure";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function UseAdventureDetail() {
@@ -21,7 +22,7 @@ export default function UseAdventureDetail() {
             .then((response) => {
                 setAdventure(response.data)
             })
-            .catch((error) => {
+            .catch(() => {
                 toast.error("Adventure does not exist.")
             })
 

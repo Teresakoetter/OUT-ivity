@@ -6,6 +6,8 @@ import AddAdventure from "./AddAdventure";
 import AdventureDetailCard from "./AdventureDetailCard";
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import Header from "./Header";
+import {ToastContainer} from "react-toastify";
+
 
 
 function App() {
@@ -13,6 +15,18 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
+                    />
                 <Header/>
                 <div className="container">
                     <Routes>
