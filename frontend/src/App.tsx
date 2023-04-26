@@ -5,13 +5,14 @@ import AdventureGallery from "./AdventureGallery";
 import AddAdventure from "./AddAdventure";
 import AdventureDetailCard from "./AdventureDetailCard";
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
+import Header from "./Header";
 
 function App() {
     const {adventures, addAdventure, deleteAdventure} = UseAdventure()
     return (
         <BrowserRouter>
             <div className="App">
-                <p>OUT-ivity</p>
+                <Header/>
                 <Routes>
                     <Route element={<Navigate to="/adventures"/>}/>
                     <Route path="/adventures"

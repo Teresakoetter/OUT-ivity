@@ -19,7 +19,7 @@ export default function AdventureCard(props: AdventureCardProps) {
             <p>description:</p>
             {props.adventure.description}
             <br/><br/>
-            <button onClick={() => {navigate("/adventures" + props.adventure.id)}}>details</button>
+            <button onClick={() => {navigate("/adventures/" + props.adventure.id)}}>details</button>
         </div>
     )
 }
