@@ -1,13 +1,8 @@
 import UseAdventure from "./UseAdventure";
 import AdventureCard from "./AdventureCard";
-import {Adventure} from "./Adventure";
 import './AdventureGallery.css'
 
-
-type AdventureGalleryProps = {
-    adventures: Adventure[]
-}
-export default function (props: AdventureGalleryProps) {
+export default function AdventureGallery() {
     const {adventures} = UseAdventure()
 
     return (
