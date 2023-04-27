@@ -42,6 +42,20 @@ export default function UseAdventure() {
 
     }
 
-    return {adventures, addAdventure, deleteAdventure}
+    function updateAdventure(adventure: Adventure){
+        axios.put(`/api/adventures/${adventure.id}`, adventure)
+            .then((putAdventureResponse) => {
+                setAdventures(adventures.map((currentAdventure) => {
+                    if(currentAdventure.id === adventure.id){
+                        return putAdventureResponse.data
+                    }
+                    else{
+                        return currentAdventure
+                    }
+                }))
+            })
+    }
+
+    return {adventures, addAdventure, deleteAdventure, updateAdventure}
 
 }
