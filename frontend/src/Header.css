@@ -1,8 +1,11 @@
 .header {
-    color: seashell;
-    background-image: url("./woodDark.jpg");
+    color: black;
+    background-image: url("./beach.jpg");
     width: 100%;
     position: fixed;
+}
+.travelBug{
+    font-size: small;
 }
 a{
     color: seashell;
@@ -17,7 +20,7 @@ a{
 
 .navElement {
     border-left: black solid 1px;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.3);
     width: 50%;
     padding: 10px;
 }

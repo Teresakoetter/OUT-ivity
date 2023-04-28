@@ -7,11 +7,12 @@ import AdventureDetailCard from "./AdventureDetailCard";
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import Header from "./Header";
 import {ToastContainer} from "react-toastify";
+import UpdateAdventure from "./UpdateAdventure";
 
 
 
 function App() {
-    const {adventures, addAdventure, deleteAdventure} = UseAdventure()
+    const {addAdventure, deleteAdventure, updateAdventure} = UseAdventure()
     return (
         <BrowserRouter>
             <div className="App">
@@ -32,11 +33,13 @@ function App() {
                     <Routes>
                         <Route element={<Navigate to="/adventures"/>}/>
                         <Route path="/adventures"
-                               element={<AdventureGallery adventures={adventures}/>}/>
+                               element={<AdventureGallery/>}/>
                         <Route path="/adventures/add"
                                element={<AddAdventure addAdventure={addAdventure}/>}/>
                         <Route path="/adventures/:id"
-                               element={<AdventureDetailCard deleteAdventure={deleteAdventure}/>}/>
+                               element={<AdventureDetailCard deleteAdventure={deleteAdventure} updateAdventure={updateAdventure}/>}/>
+                        <Route path='/adventures/update/:id'
+                               element={<UpdateAdventure updateAdventure={updateAdventure}/>}/>
                     </Routes>
                 </div>
             </div>

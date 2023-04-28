@@ -1,5 +1,6 @@
 import {NewAdventure} from "./Adventure";
 import {FormEvent, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 type AddAdventureProps = {
     addAdventure: (newAdventure: NewAdventure) => void
@@ -8,6 +9,7 @@ export default function AddAdventure(props: AddAdventureProps) {
     const [name, setName] = useState("")
     const [quote, setQuote] = useState("")
     const [description, setDescription] = useState("")
+    const navigate = useNavigate();
 
     function onSaveAdventure(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
@@ -15,6 +17,7 @@ export default function AddAdventure(props: AddAdventureProps) {
         const newAdventure: NewAdventure = {name: name, quote: quote, description: description}
 
         props.addAdventure(newAdventure)
+        navigate("/adventures")
 
     }
 

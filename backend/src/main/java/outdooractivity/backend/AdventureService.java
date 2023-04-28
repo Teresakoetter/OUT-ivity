@@ -25,4 +25,8 @@ public class AdventureService {
     public void deleteAdventure(String id) {
         adventureRepositoryInterface.deleteById(id);
     }
+
+    public Adventure updateAdventure(Adventure adventure) {
+        return adventureRepositoryInterface.save(adventure);
+    }
 }
