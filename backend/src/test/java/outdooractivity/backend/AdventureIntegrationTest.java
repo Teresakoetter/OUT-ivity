@@ -140,7 +140,33 @@ class AdventureIntegrationTest {
                         []
                         """));
     }
-}
 
+    @Test
+    @DirtiesContext
+    void updateAdventure_shouldReturnUpdatedAdventure() throws Exception {
+        mockMvc.perform(post("/api/adventures")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                "id": "1",
+                                "quote": "quote1",
+                                "name": "name1",
+                                "description": "description1"
+                                }
+                                """
+                        ))
+                .andExpect(status().isOk())
+                .andExpect(content().json(
+                        """
+                                {
+                                "id": "1",
+                                "quote": "quote1",
+                                "name": "name1",
+                                "description": "description1"
+                                }
+                                """
+                ));
+    }
+}
 
 

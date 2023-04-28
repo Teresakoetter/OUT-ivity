@@ -19,7 +19,6 @@ export default function UpdateAdventure(props: UpdateAdventureProps) {
         if (id) {
             props.updateAdventure(adventure)
             navigate("/adventures")
-
         }
     }
 

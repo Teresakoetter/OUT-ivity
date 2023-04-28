@@ -65,7 +65,6 @@ class AdventureServiceTest {
         Adventure actual = adventureService.addAdventure(adventure1);
         verify(adventureRepositoryInterface).save(adventure1);
         assertEquals(actual, adventure1);
-
     }
 
     @DirtiesContext
@@ -102,7 +101,17 @@ class AdventureServiceTest {
         adventureRepositoryInterfaceMock.save(adventure1);
         adventureService.deleteAdventure("1");
         verify(adventureRepositoryInterfaceMock).deleteById("1");
-
     }
+    @DirtiesContext
+    @Test
+    void updateAdventure_shouldSaveAdventure(){
+        final AdventureService adventureService = new AdventureService(adventureRepositoryInterface);
+        when(adventureRepositoryInterface.save(adventure1))
+                .thenReturn(adventure1);
+        Adventure actual = adventureService.updateAdventure(adventure1);
+        verify(adventureRepositoryInterface).save(adventure1);
+        assertEquals(actual, adventure1);
+    }
+
 }
 
