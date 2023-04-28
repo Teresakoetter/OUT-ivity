@@ -1,16 +1,14 @@
 import {Adventure,} from "./Adventure";
-import {ChangeEvent, FormEvent, useState} from "react";
+import {ChangeEvent, FormEvent} from "react";
 import {useNavigate, useParams} from "react-router-dom";
+import UseAdventureDetail from "./UseAdventureDetail";
 
 
 type UpdateAdventureProps = {
-    updateAdventure: (adventure: Adventure) => void
+    updateAdventure: (newAdventure: Adventure) => void
 }
 export default function UpdateAdventure(props: UpdateAdventureProps) {
-    const initialState: Adventure = {id: "", name: "", quote: "", description: ""}
-    const [adventure, setAdventure] = useState<Adventure>(initialState)
-
-
+    const {adventure, setAdventure} = UseAdventureDetail()
     const {id} = useParams<{ id: string }>()
     const navigate = useNavigate();
 
@@ -18,6 +16,7 @@ export default function UpdateAdventure(props: UpdateAdventureProps) {
         event.preventDefault()
         if (id) {
             props.updateAdventure(adventure)
+
             navigate("/adventures")
         }
     }

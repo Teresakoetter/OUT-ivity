@@ -9,7 +9,8 @@ type AdventureDetailCardProps = {
 }
 
 export default function AdventureDetailCard(props: AdventureDetailCardProps) {
-    const {adventure} = UseAdventureDetail()
+
+    const {adventure, setAdventure} = UseAdventureDetail()
     const navigate = useNavigate();
 
     function onDeleteClick() {

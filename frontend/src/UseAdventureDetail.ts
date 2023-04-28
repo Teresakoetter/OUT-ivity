@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function UseAdventureDetail() {
-    const [adventure, setAdventure] = useState<Adventure>()
+    const initialState: Adventure = {id: "", name: "", quote: "", description: ""}
+    const [adventure, setAdventure] = useState<Adventure>(initialState)
     const {id} = useParams<{ id: string }>();
 
     useEffect(() => {
@@ -29,6 +30,6 @@ export default function UseAdventureDetail() {
 
     }
 
-    return {adventure}
+    return {adventure, setAdventure}
 
 }
