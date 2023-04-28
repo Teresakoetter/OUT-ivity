@@ -15,11 +15,8 @@ export default function AdventureDetailCard(props: AdventureDetailCardProps) {
     function onDeleteClick() {
         if (adventure) {
             props.deleteAdventure(adventure.id)
+            navigate("/adventures")
         }
-
-    }
-
-    function onUpdateClick() {
 
     }
 

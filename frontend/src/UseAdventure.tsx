@@ -47,7 +47,9 @@ export default function UseAdventure() {
             .then((putAdventureResponse) => {
                 setAdventures(adventures.map((currentAdventure) => {
                     if(currentAdventure.id === adventure.id){
+                        toast.success("Successfully updated adventure.")
                         return putAdventureResponse.data
+
                     }
                     else{
                         return currentAdventure
