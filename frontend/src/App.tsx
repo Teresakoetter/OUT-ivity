@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import UseAdventure from "./UseAdventure";
 import AdventureGallery from "./AdventureGallery";
@@ -10,9 +9,9 @@ import {ToastContainer} from "react-toastify";
 import UpdateAdventure from "./UpdateAdventure";
 
 
-
 function App() {
     const {addAdventure, deleteAdventure, updateAdventure} = UseAdventure()
+
     return (
         <BrowserRouter>
             <div className="App">
@@ -27,17 +26,18 @@ function App() {
                     draggable
                     pauseOnHover
                     theme="dark"
-                    />
+                />
                 <Header/>
                 <div className="container">
                     <Routes>
                         <Route element={<Navigate to="/adventures"/>}/>
                         <Route path="/adventures"
-                               element={<AdventureGallery/>}/>
+                               element={< AdventureGallery/>}/>
                         <Route path="/adventures/add"
                                element={<AddAdventure addAdventure={addAdventure}/>}/>
                         <Route path="/adventures/:id"
-                               element={<AdventureDetailCard deleteAdventure={deleteAdventure} updateAdventure={updateAdventure}/>}/>
+                               element={<AdventureDetailCard deleteAdventure={deleteAdventure}
+                                                             updateAdventure={updateAdventure}/>}/>
                         <Route path='/adventures/update/:id'
                                element={<UpdateAdventure updateAdventure={updateAdventure}/>}/>
                     </Routes>

@@ -14,8 +14,10 @@ export default function AdventureCard(props: AdventureCardProps) {
             {props.adventure.id}
             <p>name:</p>
             {props.adventure.name}
-            <p>quote:</p>
+            <p></p>
+            <span>"</span>
             {props.adventure.quote}
+            <span>"</span>
             <p>description:</p>
             {props.adventure.description}
             <br/><br/>
