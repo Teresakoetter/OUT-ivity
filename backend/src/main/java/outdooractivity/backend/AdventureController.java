@@ -15,6 +15,7 @@ public class AdventureController {
 
     @GetMapping
     List<Adventure> adventures() {
+
         return adventureService.getAll();
     }
 
