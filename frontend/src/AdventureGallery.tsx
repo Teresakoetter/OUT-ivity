@@ -3,11 +3,8 @@ import AdventureCard from "./AdventureCard";
 import './AdventureGallery.css'
 import {ChangeEvent, useState} from "react";
 
-type AdventureGalleryProps = {
-   // inputText: string,
-   // onChange: (value: string) => void
-}
-export default function AdventureGallery(props: AdventureGalleryProps) {
+
+export default function AdventureGallery() {
     const {adventures} = UseAdventure()
     const [searchText, setSearchText] = useState("")
     const filteredAdventures = adventures.filter((adventure)=> adventure.name.toLowerCase().includes(searchText.toLowerCase()))
@@ -16,7 +13,6 @@ export default function AdventureGallery(props: AdventureGalleryProps) {
     }
 
     function onTextChange(event: ChangeEvent<HTMLInputElement>) {
-        //Die Callback Funktion wird aufgerufen mit dem Wert den der Nutzer eingetippt hat(event.target.value)
         onChange(event.target.value)
     }
 
@@ -24,7 +20,6 @@ export default function AdventureGallery(props: AdventureGalleryProps) {
         <div className="adventureGallery">
             <div>
                 <p>{searchText}</p>
-                {/* value: Was wird im input Feld angezeigt? onChange: Was soll passieren wenn der nutzer was eintippt? */}
                 <input value={searchText}
                        onChange={onTextChange}
                 placeholder="search for adventures"/>

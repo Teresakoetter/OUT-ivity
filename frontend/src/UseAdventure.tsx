@@ -21,8 +21,17 @@ export default function UseAdventure() {
             })
     }
 
-    function addAdventure(newAdventure: NewAdventure) {
-        axios.post("/api/adventures", newAdventure)
+    function addAdventure(newAdventure: NewAdventure, image: File | undefined) {
+
+        const data = new FormData()
+
+        if (image) {
+            data.append("file", image)
+        }
+
+        data.append("data", new Blob([JSON.stringify(newAdventure)], {'type': "application/json"}))
+
+        axios.post("/api/adventures", data)
             .then((response) => {
                     setAdventures([...adventures, response.data])
                     toast.success("Adventure added successfully");
@@ -43,16 +52,15 @@ export default function UseAdventure() {
 
     }
 
-    function updateAdventure(adventure: Adventure){
+    function updateAdventure(adventure: Adventure) {
         axios.put(`/api/adventures/${adventure.id}`, adventure)
             .then((putAdventureResponse) => {
                 setAdventures(adventures.map((currentAdventure) => {
-                    if(currentAdventure.id === adventure.id){
+                    if (currentAdventure.id === adventure.id) {
                         toast.success("Successfully updated adventure.")
                         return putAdventureResponse.data
 
-                    }
-                    else{
+                    } else {
                         return currentAdventure
                     }
                 }))
