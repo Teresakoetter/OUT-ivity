@@ -22,8 +22,8 @@ class AdventureIntegrationTest {
     ObjectMapper objectMapper;
     @Autowired
     AdventureRepositoryInterface adventureRepositoryInterface;
-    Adventure adventure1 = new Adventure("1", "name1", "quote1", "description1");
-    Adventure adventure2 = new Adventure("2", "name2", "quote2", "description2");
+    Adventure adventure1 = new Adventure("1", "name1", "quote1", "description1", "url");
+    Adventure adventure2 = new Adventure("2", "name2", "quote2", "description2", "url");
 
     @Test
     void getAll_shouldReturnEmptyListWhenNoAdventureAvailable() throws Exception {

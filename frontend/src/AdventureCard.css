@@ -16,3 +16,8 @@ button {
     margin: 30px 10px 10px 10px;
 
 }
+img {
+    max-width: 500px;
+    max-height: 500px;
+    border: solid dimgray 1px;
+}

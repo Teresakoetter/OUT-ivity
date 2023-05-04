@@ -8,7 +8,9 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,21 +22,25 @@ import static org.mockito.Mockito.*;
 class AdventureServiceTest {
     @Mock
     private AdventureRepositoryInterface adventureRepositoryInterfaceMock;
-    final AdventureRepositoryInterface adventureRepositoryInterface = mock(AdventureRepositoryInterface.class);
-    private AdventureService adventureService;
-    Adventure adventure1 = new Adventure("1", "name1", "quote1", "description1");
-    Adventure adventure2 = new Adventure("2", "name2", "quote2", "description2");
+    private CloudinaryService cloudinaryServiceMock;
 
+    final AdventureRepositoryInterface adventureRepositoryInterface = mock(AdventureRepositoryInterface.class);
+    final CloudinaryService cloudinaryService = mock(CloudinaryService.class);
+    private AdventureService adventureService;
+
+    Adventure adventure1 = new Adventure("1", "name1", "quote1", "description1", "url1");
+    Adventure adventure2 = new Adventure("2", "name2", "quote2", "description2", "url2");
+    MultipartFile image;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        adventureService = new AdventureService(adventureRepositoryInterfaceMock);
+        adventureService = new AdventureService(adventureRepositoryInterfaceMock, cloudinaryServiceMock);
     }
 
     @Test
     void getAll_shouldReturnEmptyListWhenNoAdventureAvailable() {
         //GIVEN
-        final AdventureService adventureService = new AdventureService(adventureRepositoryInterface);
+        final AdventureService adventureService = new AdventureService(adventureRepositoryInterface, cloudinaryService);
         when(adventureRepositoryInterface.findAll())
                 .thenReturn(Collections.emptyList());
         //WHEN
@@ -58,12 +64,11 @@ class AdventureServiceTest {
     }
 
     @Test
-    void addAdventure_shouldReturnAddedAdventureWhenAdventureIsAdded() {
-        final AdventureService adventureService = new AdventureService(adventureRepositoryInterface);
-        when(adventureRepositoryInterface.save(adventure1))
+    void addAdventure_shouldReturnAddedAdventureWhenAdventureIsAdded() throws IOException {
+        when(adventureRepositoryInterfaceMock.save(adventure1))
                 .thenReturn(adventure1);
-        Adventure actual = adventureService.addAdventure(adventure1);
-        verify(adventureRepositoryInterface).save(adventure1);
+        Adventure actual = adventureService.addAdventure(adventure1, image);
+        verify(adventureRepositoryInterfaceMock).save(adventure1);
         assertEquals(actual, adventure1);
     }
 
@@ -105,11 +110,10 @@ class AdventureServiceTest {
     @DirtiesContext
     @Test
     void updateAdventure_shouldSaveAdventure(){
-        final AdventureService adventureService = new AdventureService(adventureRepositoryInterface);
-        when(adventureRepositoryInterface.save(adventure1))
+        when(adventureRepositoryInterfaceMock.save(adventure1))
                 .thenReturn(adventure1);
         Adventure actual = adventureService.updateAdventure(adventure1);
-        verify(adventureRepositoryInterface).save(adventure1);
+        verify(adventureRepositoryInterfaceMock).save(adventure1);
         assertEquals(actual, adventure1);
     }
 
