@@ -1,4 +1,4 @@
-import './AdventureCard.css'
+import './AdventureDetailCard.css'
 import UseAdventureDetail from "./UseAdventureDetail";
 import {Adventure} from "./Adventure";
 import {useNavigate} from "react-router-dom";
@@ -25,21 +25,27 @@ export default function AdventureDetailCard(props: AdventureDetailCardProps) {
         <div className="adventureCard">
             {
                 adventure
-                    ? <div>
-                        <p>id:</p>
-                        {adventure.id}
-                        <p>name:</p>
-                        {adventure.name}
-                        <p>quote:</p>
-                        {adventure.quote}
-                        <p>description:</p>
-                        {adventure.description}
-                        <br/>
-                        <button onClick={onDeleteClick}>delete adventure</button>
-                        <button onClick={() => {
-                            navigate("/adventures/update/" + adventure.id)
-                        }}>update adventure
-                        </button>
+                    ? <div className="adventureDetailCard">
+                        <div className="image_quote">
+                            <img src={adventure.url} alt={adventure.name}/>
+                            <p></p>
+                            <span>"</span>
+                            {adventure.quote}
+                            <span>"</span>
+                        </div>
+                        <div>
+                            <section className="name">
+                                {adventure.name}
+                            </section>
+                            <p>...and here's the story:</p>
+                            {adventure.description}
+                            <br/>
+                            <button onClick={onDeleteClick}>delete adventure</button>
+                            <button onClick={() => {
+                                navigate("/adventures/update/" + adventure.id)
+                            }}>update adventure
+                            </button>
+                        </div>
                     </div>
                     : <div>Loading...</div>
             }
