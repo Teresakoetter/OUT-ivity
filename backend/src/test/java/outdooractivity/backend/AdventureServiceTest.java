@@ -30,7 +30,7 @@ class AdventureServiceTest {
 
     Adventure adventure1 = new Adventure("1", "name1", "quote1", "description1", "url1");
     Adventure adventure2 = new Adventure("2", "name2", "quote2", "description2", "url2");
-    MultipartFile image;
+    MultipartFile image = null;
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -65,6 +65,7 @@ class AdventureServiceTest {
 
     @Test
     void addAdventure_shouldReturnAddedAdventureWhenAdventureIsAdded() throws IOException {
+        when(cloudinaryService.uploadImage(any())).thenReturn("url");
         when(adventureRepositoryInterfaceMock.save(adventure1))
                 .thenReturn(adventure1);
         Adventure actual = adventureService.addAdventure(adventure1, image);
