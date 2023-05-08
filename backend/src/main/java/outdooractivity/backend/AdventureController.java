@@ -3,8 +3,10 @@ package outdooractivity.backend;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,8 +22,8 @@ public class AdventureController {
     }
 
     @PostMapping
-    Adventure addAdventure(@RequestBody Adventure adventure) {
-        return adventureService.addAdventure(adventure);
+    Adventure addAdventure(@RequestPart("data") Adventure adventure, @RequestPart(name = "file", required = false) MultipartFile image) throws IOException {
+        return adventureService.addAdventure(adventure, image);
     }
 
     @GetMapping("{id}")

@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function UseAdventureDetail() {
-    const initialState: Adventure = {id: "", name: "", quote: "", description: ""}
+    const initialState: Adventure = {id: "", name: "", quote: "", description: "", url: ""}
     const [adventure, setAdventure] = useState<Adventure>(initialState)
     const {id} = useParams<{ id: string }>();
 

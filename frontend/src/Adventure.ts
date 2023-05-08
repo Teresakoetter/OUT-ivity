@@ -3,6 +3,7 @@ export type Adventure = {
     name: string,
     quote: string,
     description: string
+    url: string
 }
 
 export type NewAdventure = {
