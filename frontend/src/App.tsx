@@ -9,10 +9,11 @@ import {ToastContainer} from "react-toastify";
 import UpdateAdventure from "./UpdateAdventure";
 import LoginPage from "./LoginPage";
 import UseUser from "./useUser";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 
 function App() {
-    const {login} = UseUser()
+    const {user, login} = UseUser()
     const {addAdventure, deleteAdventure, updateAdventure} = UseAdventure()
 
     return (
@@ -37,13 +38,15 @@ function App() {
                         <Route element={<Navigate to="/adventures"/>}/>
                         <Route path="/adventures"
                                element={< AdventureGallery/>}/>
-                        <Route path="/adventures/add"
-                               element={<AddAdventure addAdventure={addAdventure}/>}/>
                         <Route path="/adventures/:id"
                                element={<AdventureDetailCard deleteAdventure={deleteAdventure}
                                                              updateAdventure={updateAdventure}/>}/>
-                        <Route path='/adventures/update/:id'
-                               element={<UpdateAdventure updateAdventure={updateAdventure}/>}/>
+                        <Route element={<ProtectedRoutes user={user}/>}>
+                        <Route path="/adventures/add"
+                               element={<AddAdventure addAdventure={addAdventure}/>}/>
+                            <Route path='/adventures/update/:id'
+                                   element={<UpdateAdventure updateAdventure={updateAdventure}/>}/>
+                        </Route>
                     </Routes>
                 </div>
             </div>
