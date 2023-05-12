@@ -28,7 +28,14 @@ public class SecurityConfig {
         requestHandler.setCsrfRequestAttributeName(null);
         return http.csrf(csrf -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).csrfTokenRequestHandler(requestHandler))
 
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)).csrf().disable().httpBasic().and().authorizeHttpRequests().requestMatchers("/api/**").authenticated().anyRequest().permitAll().and().formLogin().and().logout().and().build();
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)).csrf().disable()
+                .httpBasic().and()
+                .authorizeHttpRequests()
+                .requestMatchers("/api/adventures").permitAll()
+                .requestMatchers("/api/add", "/api/update/**", "/api/adventures/**").authenticated()
+                //.requestMatchers("/api/**").authenticated()
+                .anyRequest().permitAll()
+                .and().build();
     }
 }
 

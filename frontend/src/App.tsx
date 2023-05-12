@@ -38,12 +38,12 @@ function App() {
                         <Route element={<Navigate to="/adventures"/>}/>
                         <Route path="/adventures"
                                element={< AdventureGallery/>}/>
-                        <Route path="/adventures/:id"
-                               element={<AdventureDetailCard deleteAdventure={deleteAdventure}
-                                                             updateAdventure={updateAdventure}/>}/>
                         <Route element={<ProtectedRoutes user={user}/>}>
-                        <Route path="/adventures/add"
-                               element={<AddAdventure addAdventure={addAdventure}/>}/>
+                            <Route path="/adventures/:id"
+                                   element={<AdventureDetailCard deleteAdventure={deleteAdventure}
+                                                                 updateAdventure={updateAdventure}/>}/>
+                            <Route path="/adventures/add"
+                                   element={<AddAdventure addAdventure={addAdventure}/>}/>
                             <Route path='/adventures/update/:id'
                                    element={<UpdateAdventure updateAdventure={updateAdventure}/>}/>
                         </Route>
