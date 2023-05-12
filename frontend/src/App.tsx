@@ -7,9 +7,12 @@ import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
 import Header from "./Header";
 import {ToastContainer} from "react-toastify";
 import UpdateAdventure from "./UpdateAdventure";
+import LoginPage from "./LoginPage";
+import UseUser from "./useUser";
 
 
 function App() {
+    const {login} = UseUser()
     const {addAdventure, deleteAdventure, updateAdventure} = UseAdventure()
 
     return (
@@ -30,6 +33,7 @@ function App() {
                 <Header/>
                 <div className="container">
                     <Routes>
+                        <Route path='/login' element={<LoginPage onLogin={login}/>}/>
                         <Route element={<Navigate to="/adventures"/>}/>
                         <Route path="/adventures"
                                element={< AdventureGallery/>}/>
