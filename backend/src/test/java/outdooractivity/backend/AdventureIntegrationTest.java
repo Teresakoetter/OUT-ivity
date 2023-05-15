@@ -281,7 +281,8 @@ class AdventureIntegrationTest {
                                 "description": "description1"
                                 }
                                 """
-                        ))
+                        )
+                        .with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(content().json(
                         """
