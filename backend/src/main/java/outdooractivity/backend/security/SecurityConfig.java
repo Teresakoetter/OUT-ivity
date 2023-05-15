@@ -1,4 +1,4 @@
-package outdooractivity.backend.Security;
+package outdooractivity.backend.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package outdooractivity.backend.Security;
+package outdooractivity.backend.security;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

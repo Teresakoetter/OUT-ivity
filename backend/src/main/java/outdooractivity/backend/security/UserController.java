@@ -1,4 +1,4 @@
-package outdooractivity.backend.Security;
+package outdooractivity.backend.security;
 
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.context.SecurityContextHolder;
