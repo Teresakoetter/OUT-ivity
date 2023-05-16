@@ -12,6 +12,9 @@ const navigate = useNavigate()
         event.preventDefault()
         props.onLogin(username, password)
             .then(() => {navigate("/adventures")})
+            .catch((error) =>{
+                console.error("Error occurred:", error)
+            })
     }
 
         return (
