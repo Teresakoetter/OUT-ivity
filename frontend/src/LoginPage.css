@@ -1,0 +1,19 @@
+.login{
+    background-image: url("./ship_dark.jpg");
+    background-size: cover;
+
+
+    font-size: large;
+    color: seashell;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+
+}
+
+img{
+    height:100%;
+}
