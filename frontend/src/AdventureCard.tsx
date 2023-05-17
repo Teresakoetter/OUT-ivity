@@ -10,20 +10,21 @@ export default function AdventureCard(props: AdventureCardProps) {
     const navigate = useNavigate()
     return (
         <div className="adventureCard">
-            <p>id:</p>
-            {props.adventure.id}
-            <p>name:</p>
+            <div className="name">
             {props.adventure.name}
+                </div>
             <p></p>
             <span>"</span>
             {props.adventure.quote}
             <span>"</span>
-            <p>description:</p>
-            {props.adventure.description}
-            <p>show me:</p>
+            <br/>
+            <br/>
             <img src={props.adventure.url} alt={props.adventure.name}/>
             <br/><br/>
-            <button onClick={() => {navigate("/adventures/" + props.adventure.id)}}>details</button>
+            <button onClick={() => {
+                navigate("/adventures/" + props.adventure.id)
+            }}>click here for the whole story
+            </button>
         </div>
     )
 }

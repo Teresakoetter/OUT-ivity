@@ -22,7 +22,7 @@ export default function AdventureDetailCard(props: AdventureDetailCardProps) {
     }
 
     return (
-        <div className="adventureCard">
+        <div >
             {
                 adventure
                     ? <div className="adventureDetailCard">
@@ -32,20 +32,25 @@ export default function AdventureDetailCard(props: AdventureDetailCardProps) {
                             <span>"</span>
                             {adventure.quote}
                             <span>"</span>
+                        <br/>
+                        <br/>
                         </div>
                         <div>
                             <section className="name">
                                 {adventure.name}
                             </section>
-                            <p>...and here's the story:</p>
-                            {adventure.description}
                             <br/>
+                            <section className="description">
+                            {adventure.description}
+                            </section>
+                            <br/>
+                        </div>
                             <button onClick={onDeleteClick}>delete adventure</button>
                             <button onClick={() => {
                                 navigate("/adventures/update/" + adventure.id)
                             }}>update adventure
                             </button>
-                        </div>
+
                     </div>
                     : <div>Loading...</div>
             }

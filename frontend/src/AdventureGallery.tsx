@@ -18,11 +18,11 @@ export default function AdventureGallery() {
 
     return (
         <div className="adventureGallery">
-            <div>
+            <div className="searchbar">
                 <p>{searchText}</p>
                 <input value={searchText}
                        onChange={onTextChange}
-                placeholder="search for adventures"/>
+                placeholder="  search for adventures"/>
 
             </div>
             {filteredAdventures.map((adventure) =>

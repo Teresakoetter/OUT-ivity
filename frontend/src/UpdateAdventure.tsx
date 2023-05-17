@@ -2,6 +2,7 @@ import {Adventure,} from "./Adventure";
 import {ChangeEvent, FormEvent} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import UseAdventureDetail from "./UseAdventureDetail";
+import './AddAdventure.css'
 
 
 type UpdateAdventureProps = {
@@ -34,6 +35,7 @@ export default function UpdateAdventure(props: UpdateAdventureProps) {
     return (
         <div>
             <form onSubmit={onSaveAdventure}>
+                <div className="textareaContainer">
                 <textarea
                     name="name"
                     placeholder={adventure.name}
@@ -41,17 +43,20 @@ export default function UpdateAdventure(props: UpdateAdventureProps) {
                     onChange={onChange}
                 />
                 <textarea
+                    className="quote"
                     name="quote"
                     placeholder={adventure.quote}
                     value={adventure.quote}
                     onChange={onChange}
                 />
                 <textarea
+                    className="description"
                     name="description"
                     placeholder={adventure.description}
                     value={adventure.description}
                     onChange={onChange}
                 />
+                </div>
                 <button>Update</button>
             </form>
         </div>
