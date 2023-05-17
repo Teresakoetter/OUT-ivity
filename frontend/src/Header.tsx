@@ -4,7 +4,8 @@ import './Header.css'
 export default function Header() {
     return (
         <div className="header">
-            <NavLink to='/login'>[ login ]</NavLink>
+            <NavLink to='/login'>[ login ] </NavLink>
+            <NavLink to='/logout'> [ logout ]</NavLink>
             <h1>OUT-ivity <span className="travelBug"> ...making friends with the travel bug</span></h1>
             <div className="navBar">
                 <section className="navElement"><Link to="/adventures">browse through adventures</Link>

@@ -8,10 +8,11 @@ public record Adventure(
         String name,
         String quote,
         String description,
-        String url
+        String url,
+        String transportation
 
 ) {
         public Adventure withUrl(String url){
-                return new Adventure(id, name, quote, description, url);
+                return new Adventure(id, name, quote, description, transportation, url);
         }
 }

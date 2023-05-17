@@ -10,10 +10,13 @@ import UpdateAdventure from "./UpdateAdventure";
 import LoginPage from "./LoginPage";
 import UseUser from "./useUser";
 import ProtectedRoutes from "./ProtectedRoutes";
+import Logout from "./Logout";
+
 
 
 function App() {
-    const {user, login} = UseUser()
+    const {user, login, isLoading} = UseUser()
+
     const {addAdventure, deleteAdventure, updateAdventure} = UseAdventure()
 
     return (
@@ -35,10 +38,11 @@ function App() {
                 <div className="container">
                     <Routes>
                         <Route path='/login' element={<LoginPage onLogin={login}/>}/>
+                        <Route path='/logout' element={<Logout/>}/>
                         <Route element={<Navigate to="/adventures"/>}/>
                         <Route path="/adventures"
                                element={< AdventureGallery/>}/>
-                        <Route element={<ProtectedRoutes user={user}/>}>
+                        <Route element={<ProtectedRoutes user={user} isLoading={isLoading}/>}>
                             <Route path="/adventures/:id"
                                    element={<AdventureDetailCard deleteAdventure={deleteAdventure}
                                                                  updateAdventure={updateAdventure}/>}/>
