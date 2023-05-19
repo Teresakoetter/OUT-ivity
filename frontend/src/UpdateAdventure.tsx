@@ -2,7 +2,7 @@ import {Adventure,} from "./Adventure";
 import {ChangeEvent, FormEvent} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import UseAdventureDetail from "./UseAdventureDetail";
-import './AddAdventure.css'
+import './UpdateAdventure.css'
 
 
 type UpdateAdventureProps = {
@@ -50,7 +50,7 @@ export default function UpdateAdventure(props: UpdateAdventureProps) {
                     onChange={onChange}
                 />
                 <textarea
-                    className="description"
+                    className="updateDescription"
                     name="description"
                     placeholder={adventure.description}
                     value={adventure.description}

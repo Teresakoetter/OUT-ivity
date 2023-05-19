@@ -1,17 +1,17 @@
 textarea{
     border-radius: 7px;
-    background-color: seashell;
+    background-color: white;
 }
+
 .quote {
     min-height: 50px;
     max-height: 400px;
-    background-color: seashell;
+
 }
 
-.description {
-    min-height: 100px;
-    max-height: 200px;
-    background-color: seashell;
+.addDescription {
+
+    max-height: 600px;
 }
 
 
@@ -20,7 +20,7 @@ textarea{
     flex-direction: column;
     gap: 10px;
     width: 80%;
-    padding: 5% 10% 0% 10%;
+    padding: 5% 10% 0 10%;
 }
 .dropdown{
     padding: 3px;
@@ -36,4 +36,6 @@ textarea{
 .imagefile {
     width: 98%;
     padding: 3px;
+    margin-left: 0;
+
 }

@@ -28,7 +28,7 @@ export default function AddAdventure(props: AddAdventureProps) {
         <div>
             <form onSubmit={onSaveAdventure}>
                 <div className="textareaContainer">
-                <textarea className="name"
+                <textarea className="addName"
                           placeholder="insert your adventure name"
                           value={name}
                           onChange={(event) => {
@@ -42,7 +42,7 @@ export default function AddAdventure(props: AddAdventureProps) {
                             setQuote(event.target.value)
                         }}/>
                     <textarea
-                        className="description"
+                        className="addDescription"
                         placeholder="we're excited to read the whole story"
                         value={description}
                         onChange={(event) => {

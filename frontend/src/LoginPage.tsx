@@ -50,6 +50,17 @@ export default function LoginPage(props: Props) {
                 <br/>
                 <br/>
                 <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </form>
         </div>
     )

@@ -10,13 +10,12 @@ button {
     height: 30px;
 }
 input {
-    width: 80%;
-    height: 100%;
+
     background-color: seashell;
     border-radius: 5px;
-
+    margin-left: 5%;
+    margin-right: 5%;
 }
-.searchbar {
-    padding: 5%;
 
-}
+
+
