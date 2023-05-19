@@ -1,9 +1,6 @@
 .adventureGallery{
     display: flex;
-
-
     flex-direction: column;
-
 }
 button {
     background-image: url("./buttonBackgrundYellow.jpeg");

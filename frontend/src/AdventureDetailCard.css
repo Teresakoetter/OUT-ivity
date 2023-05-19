@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Wix+Madefor+Display&display=swap');
+
 .adventureDetailCard {
     display: flex;
     flex-direction: column;
@@ -15,7 +17,7 @@ button {
     border: solid 1px black;
     border-radius: 3px;
     max-height: 100%;
-    margin: 30px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
 
 }
 img {
@@ -24,11 +26,13 @@ img {
 
 .quote {
     font-style: italic;
+    font-family: 'Architects Daughter', cursive;
 
 }
 .name {
     font-weight: bold;
     width: 95%;
+    font-family: 'Wix Madefor Display', sans-serif;
 
 }
 .image_quote {
@@ -36,6 +40,7 @@ img {
     max-height: 100%;
     word-wrap: break-word;
     font-style: italic;
+    font-family: 'Architects Daughter', cursive;
 
 }
 .description{
@@ -49,4 +54,8 @@ img {
     width: 93%;
     height: 100%;
     font-size: small;
+    font-family: 'Architects Daughter', cursive;
+    overflow: auto;
 }
+
+

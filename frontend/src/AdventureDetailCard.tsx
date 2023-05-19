@@ -45,12 +45,13 @@ export default function AdventureDetailCard(props: AdventureDetailCardProps) {
                             </section>
                             <br/>
                         </div>
+                    <div className="buttons">
                             <button onClick={onDeleteClick}>delete adventure</button>
                             <button onClick={() => {
                                 navigate("/adventures/update/" + adventure.id)
                             }}>update adventure
                             </button>
-
+                    </div>
                     </div>
                     : <div>Loading...</div>
             }
