@@ -1,11 +1,8 @@
 .login{
     background-image: url("./ship_dark.jpg");
     background-size: cover;
-
-
     font-size: large;
     color: seashell;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,4 +13,7 @@
 
 img{
     height:100%;
+}
+input{
+    height: 8%
 }
