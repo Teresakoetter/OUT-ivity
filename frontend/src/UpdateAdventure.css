@@ -1,0 +1,37 @@
+textarea{
+    border-radius: 7px;
+    background-color: white;
+}
+
+.quote {
+    min-height: 50px;
+    max-height: 400px;
+
+}
+
+.updateDescription {
+    min-height: 100px;
+    max-height: 400px;
+
+}
+
+
+.textareaContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    padding: 5% 10% 0 10%;
+}
+.dropdown{
+    padding: 3px;
+    border-radius: 5px;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px; /* Platz für den Pfeil */
+}
+

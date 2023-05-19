@@ -28,8 +28,8 @@ class AdventureServiceTest {
     final CloudinaryService cloudinaryService = mock(CloudinaryService.class);
     private AdventureService adventureService;
 
-    Adventure adventure1 = new Adventure("1", "name1", "quote1", "description1", "url1");
-    Adventure adventure2 = new Adventure("2", "name2", "quote2", "description2", "url2");
+    Adventure adventure1 = new Adventure("1", "name1", "quote1", "description1", "url1", "bicycle");
+    Adventure adventure2 = new Adventure("2", "name2", "quote2", "description2", "url2", "bicycle");
     MultipartFile image = null;
     @BeforeEach
     void setUp() {
