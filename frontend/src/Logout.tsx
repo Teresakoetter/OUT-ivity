@@ -13,6 +13,9 @@ export default function Logout(){
             .then(() => {
                 navigate("/login");
             })
+            .catch((error) => {
+                console.error("Error occurred:", error)
+            })
     }
 
 
