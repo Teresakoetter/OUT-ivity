@@ -12,7 +12,7 @@ export default function AddAdventure(props: AddAdventureProps) {
     const [quote, setQuote] = useState("")
     const [description, setDescription] = useState("")
     const [image, setImage] = useState<File>()
-    const [transportation, setTransportation] = useState("")
+    const [transportation, setTransportation] = useState("choose your way of moving")
     const navigate = useNavigate();
 
     function onSaveAdventure(event: FormEvent<HTMLFormElement>) {
