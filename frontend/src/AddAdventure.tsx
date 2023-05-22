@@ -67,12 +67,12 @@ export default function AddAdventure(props: AddAdventureProps) {
                             onChange={(event) => {
                                 setTransportation(event.target.value)
                             }}>
-                            <option value="option1">choose your way of moving</option>
-                            <option value="option2">bicycle</option>
-                            <option value="option3">more wheels</option>
-                            <option value="option4">on the water</option>
-                            <option value="option5">through the air</option>
-                            <option value="option6">by foot</option>
+                            <option value="choose your way of moving">choose your way of moving</option>
+                            <option value="bicycle">bicycle</option>
+                            <option value="more wheels">more wheels</option>
+                            <option value="on the water">on the water</option>
+                            <option value="through the air">through the air</option>
+                            <option value="afoot">afoot</option>
                         </select>
                     </label>
                 </div>

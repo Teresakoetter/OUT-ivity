@@ -31,6 +31,7 @@ export default function AdventureDetailCard(props: AdventureDetailCardProps) {
                             <p></p>
                             <span>"</span>
                             {adventure.quote}
+                            <span>"</span>
                         </div>
                         <div>
                             <section className="name">
