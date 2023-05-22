@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Wix+Madefor+Display&display=swap');
+
+
 .login{
     background-image: url("./ship_dark.jpg");
     background-size: cover;
@@ -8,6 +11,7 @@
     align-items: center;
     overflow: hidden;
     flex-direction: column;
+    font-family: 'Architects Daughter', cursive;
 
 }
 

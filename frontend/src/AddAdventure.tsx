@@ -3,6 +3,7 @@ import {FormEvent, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import './AddAdventure.css'
 
+
 type AddAdventureProps = {
     addAdventure: (newAdventure: NewAdventure, image: File | undefined) => void
 }

@@ -20,7 +20,10 @@ export default function AdventureCard(props: AdventureCardProps) {
             <br/>
             <br/>
             <img src={props.adventure.url} alt={props.adventure.name}/>
-            <br/><br/>
+            <br/>
+            <p>means of transportation:</p>
+            {/*{props.adventure.transportation}*/}
+            <br/>
             <button onClick={() => {
                 navigate("/adventures/" + props.adventure.id)
             }}>click here for the whole story

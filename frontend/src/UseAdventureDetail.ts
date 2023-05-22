@@ -22,6 +22,7 @@ export default function UseAdventureDetail() {
         axios.get('/api/adventures/' + id)
             .then((response) => {
                 setAdventure(response.data)
+                console.log(response.data)
             })
             .catch(() => {
                 toast.error("Adventure does not exist.")
