@@ -3,6 +3,7 @@ import {FormEvent, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import './AddAdventure.css'
 
+
 type AddAdventureProps = {
     addAdventure: (newAdventure: NewAdventure, image: File | undefined) => void
 }
@@ -11,7 +12,7 @@ export default function AddAdventure(props: AddAdventureProps) {
     const [quote, setQuote] = useState("")
     const [description, setDescription] = useState("")
     const [image, setImage] = useState<File>()
-    const [transportation, setTransportation] = useState("")
+    const [transportation, setTransportation] = useState("choose your way of moving")
     const navigate = useNavigate();
 
     function onSaveAdventure(event: FormEvent<HTMLFormElement>) {
@@ -66,12 +67,12 @@ export default function AddAdventure(props: AddAdventureProps) {
                             onChange={(event) => {
                                 setTransportation(event.target.value)
                             }}>
-                            <option value="option1">choose your way of moving</option>
-                            <option value="option2">bicycle</option>
-                            <option value="option3">more wheels</option>
-                            <option value="option4">on the water</option>
-                            <option value="option5">through the air</option>
-                            <option value="option6">by foot</option>
+                            <option value="choose your way of moving">choose your way of moving</option>
+                            <option value="bicycle">bicycle</option>
+                            <option value="more wheels">more wheels</option>
+                            <option value="on the water">on the water</option>
+                            <option value="through the air">through the air</option>
+                            <option value="afoot">afoot</option>
                         </select>
                     </label>
                 </div>

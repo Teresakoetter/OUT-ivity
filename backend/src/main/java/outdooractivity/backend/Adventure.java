@@ -13,6 +13,6 @@ public record Adventure(
 
 ) {
         public Adventure withUrl(String url){
-                return new Adventure(id, name, quote, description, transportation, url);
+                return new Adventure(id, name, quote, description, url, transportation);
         }
 }
