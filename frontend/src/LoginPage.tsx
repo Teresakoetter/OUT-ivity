@@ -26,7 +26,6 @@ export default function LoginPage(props: Props) {
             <br/>
             <br/>
             <br/>
-            <br/>
             <p>Setting sails with OUT-ivity</p>
             <br/>
             <form onSubmit={onSubmit}>
@@ -36,6 +35,8 @@ export default function LoginPage(props: Props) {
                 <br/>
                 <input value={password} placeholder="  password" type="password"
                        onChange={e => setPassword(e.target.value)}/>
+                <br/>
+                <br/>
                 <br/>
                 <button type="submit">login</button>
                 <br/>
@@ -52,15 +53,7 @@ export default function LoginPage(props: Props) {
                 <br/>
                 <br/>
                 <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+
             </form>
         </div>
     )

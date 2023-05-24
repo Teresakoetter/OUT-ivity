@@ -52,6 +52,7 @@ function App() {
                                    element={<UpdateAdventure updateAdventure={updateAdventure}/>}/>
                         </Route>
                     </Routes>
+
                 </div>
             </div>
         </BrowserRouter>

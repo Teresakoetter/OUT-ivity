@@ -6,12 +6,10 @@ textarea{
 .quote {
     min-height: 50px;
     max-height: 400px;
-
 }
 
 .addDescription {
-
-    max-height: 600px;
+   height: 15rem;
 }
 
 

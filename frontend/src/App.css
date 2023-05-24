@@ -1,14 +1,18 @@
 body{
-  background-image: url("./campfireDark.jpg");
+  text-align: center;
+  background-image: url("fire2.jpeg");
+  background-size: cover;
+  height: 100%;
 
 }
 .App {
-  text-align: center;
-  background-image: url("./campfireDark.jpg");
+
 }
 
 .container{
-  padding-top: 50%;
+  padding-top: 45%;
   overflow: auto; /* Hinzufügen eines Scrollbalkens bei Bedarf */
-  height: 100%; /* Begrenzen Sie die Höhe des Containers auf 200px */
+   /* Begrenzen Sie die Höhe des Containers auf 200px */
 }
+
+

@@ -77,7 +77,17 @@ export default function AddAdventure(props: AddAdventureProps) {
                     </label>
                 </div>
                 <br/>
+                <br/>
                 <button>save adventure</button>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </form>
         </div>
     )
