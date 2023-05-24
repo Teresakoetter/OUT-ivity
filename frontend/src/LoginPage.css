@@ -2,9 +2,11 @@
 
 
 .login{
+    margin-top: -5%;
+    margin-bottom: 0;
     background-image: url("./ship_dark.jpg");
     background-size: cover;
-    font-size: large;
+    font-size: larger;
     color: seashell;
     display: flex;
     justify-content: center;
@@ -13,11 +15,10 @@
     flex-direction: column;
     font-family: 'Architects Daughter', cursive;
 
+    border: solid seashell 1px;
+
 }
 
-img{
-    height:100%;
-}
 input{
     height: 8%
 }
